@@ -114,3 +114,30 @@ console.log(b); // this will throw an error because b is not defined in the glob
 ```
 
 ---
+
+## == vs ===
+
+**== :**
+- It only checks for value equality
+- It does not check for type equality
+- Returns true if the operands are equal
+- Returns false if the operands are not equal
+
+**=== :**
+- It checks for both value and type equality
+- Returns true if the operands are equal in both value and type
+- Returns false if the operands are not equal in either value or type
+
+```js
+let x = "10";
+console.log(typeof(x)) // string
+
+let y = 10;
+console.log(typeof(y)) // number
+
+console.log(x == y) // true
+console.log(x === y) // false
+```
+
+---
+
