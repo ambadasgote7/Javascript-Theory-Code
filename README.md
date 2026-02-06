@@ -357,7 +357,7 @@ console.log(Math.random()); // 0.12345678901234568
 
 **What Gets Hoisted and How It’s Hoisted**
 
-1. var Hoisting
+**1. var Hoisting**
 - Declaration is hoisted
 - Initialization is NOT hoisted
 - Default value is undefined
@@ -371,7 +371,7 @@ console.log(a);
 a = 10;
 ```
 
-2. let and const
+**2. let and const**
 - Hoisted ❌ but not accessible
 - Stay in Temporal Dead Zone (TDZ)
 - Access before declaration → error
@@ -380,7 +380,7 @@ console.log(b); // ReferenceError
 let b = 20;
 ```
 
-3 . Function Hoisting (Function Declaration)
+**3. Function Hoisting (Function Declaration)**
 - Fully hoisted
 - Can be called before definition
 ```js
@@ -391,7 +391,7 @@ function hello() {
 }
 ```
 
-4. Function Expression Hoisting
+**4. Function Expression Hoisting**
 - Treated like a variable
 - Depends on var, let, or const
 ```js
