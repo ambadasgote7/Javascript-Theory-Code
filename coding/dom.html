@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM </title>
+</head>
+<body>
+    <header class="header">
+        <h1 id="heading">DOM</h1>
+        <p id="para1" class="myPara">DOM stands for Document Object Model</p>
+        <p class="myPara">It is a programming interface for HTML and XML documents.</p>
+    </header>
+
+    <script>
+        let heading = document.getElementById("heading");
+        heading.style.color = "red";
+        let myPara = document.getElementsByClassName("myPara");
+        for (let i = 0; i < myPara.length; i++) {
+            myPara[i].style.color = "blue";
+        }
+        let para = document.getElementsByTagName("p");
+        para[0].style.backgroundColor = "yellow";
+    </script>
+    
+</body>
+</html>

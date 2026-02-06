@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM1 </title>
+</head>
+<body>
+    <header class="header">
+        <h1 id="heading">DOM</h1>
+        <p id="para1" class="myPara">DOM stands for Document Object Model</p>
+        <p class="myPara">It is a programming interface for HTML and XML documents.</p>
+    </header>
+
+    <button >Click Me</button>
+
+    <script>
+        let para = document.querySelectorAll("p");
+        for (let i = 0; i < para.length; i++) {
+            para[i].style.color = "blue";
+        }
+        let heading = document.querySelector("#heading");
+        let content = heading.innerHTML;
+        console.log(content);
+
+
+        let newHead = document.createElement("h1");
+        newHead.innerHTML = "Hello World";
+        document.body.appendChild(newHead);
+
+        heading.setAttribute("style", "color:green");
+
+        let btn = document.querySelector("button");
+        btn.addEventListener("click", function() {
+            btn.style.backgroundColor = "red";
+        });
+        btn.addEventListener("mouseover", function() {
+            document.body.style.backgroundColor = "yellow";
+        });
+        btn.addEventListener("mouseout", function() {
+            document.body.style.backgroundColor = "red";
+        });
+    </script>
+    
+</body>
+</html>

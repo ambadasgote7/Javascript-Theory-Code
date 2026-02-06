@@ -341,3 +341,14 @@ console.log(Math.random()); // 0.12345678901234568
 
 ---
 
+## DOM and BOM
+
+**Browser Object Model (BOM) :**
+- The BOM is a set of web standards that define how web browsers should interact with each other and with the web pages that they display.
+
+**Document Object Model (DOM) :**
+- The DOM is a programming interface for HTML and XML documents.
+- It represents the page as a tree-like structure, where each node in the tree represents an element, attribute, or piece of text in the document.
+
+---
+
