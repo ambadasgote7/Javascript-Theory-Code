@@ -352,3 +352,76 @@ console.log(Math.random()); // 0.12345678901234568
 
 ---
 
+## Hoisting
+- Hoisting is JavaScript’s behavior where variable and function declarations are processed before code execution, making them available at the top of their scope.
+
+**What Gets Hoisted and How It’s Hoisted**
+
+1. var Hoisting
+- Declaration is hoisted
+- Initialization is NOT hoisted
+- Default value is undefined
+```js 
+console.log(a); // undefined
+var a = 10;
+
+above code is equivalent to
+var a;
+console.log(a);
+a = 10;
+```
+
+2. let and const
+- Hoisted ❌ but not accessible
+- Stay in Temporal Dead Zone (TDZ)
+- Access before declaration → error
+```js
+console.log(b); // ReferenceError
+let b = 20;
+```
+
+3 . Function Hoisting (Function Declaration)
+- Fully hoisted
+- Can be called before definition
+```js
+hello();
+
+function hello() {
+  console.log("Hello");
+}
+```
+
+4. Function Expression Hoisting
+- Treated like a variable
+- Depends on var, let, or const
+```js
+sayHi(); // TypeError
+
+var sayHi = function () {
+  console.log("Hi");
+};
+
+Reason:
+
+var sayHi; // hoisted
+sayHi();   // undefined()
+```
+----
+
+## Closures
+- Closures are function that remebers and access the variables of the outer function even after the outer function has finished its execution.
+```js 
+function outer() {
+    var name = "Ambadas";
+    function inner() {
+        console.log(name);
+    }
+    return inner;
+}
+
+let closure = outer();
+closure(); // Ambadas
+outer()(); // outer()() calls the outer function first, which returns the inner function, and then immediately calls that returned function.
+```
+
+---
