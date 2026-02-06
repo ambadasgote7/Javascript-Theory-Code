@@ -425,3 +425,56 @@ outer()(); // outer()() calls the outer function first, which returns the inner 
 ```
 
 ---
+
+## Event Loop 
+
+**Event :**
+- An event is an action or occurrence (like a click, timer, or network response) that is handled asynchronously by JavaScript.
+
+**Points to remember :**
+- JavaScript is single-threaded (one call stack).
+- JavaScript executes code synchronously by default.
+- JavaScript can handle asynchronous operations using the Event Loop.
+- Everything in JavaScript runs inside an Execution Context.
+- Each execution context has two phases:
+    - Memory Creation Phase
+    - Code Execution Phase
+- Execution contexts are managed using the Call Stack.
+- The Global Execution Context is created first.
+- Every function call creates a new execution context.
+
+
+**Event Loop :**
+- The Event Loop continuously monitors the Call Stack and the Task Queues, and when the Call Stack is empty, it pushes waiting 
+callbacks into the stack for execution.
+
+**Components Involved :**
+
+1. Call Stack
+Executes synchronous code
+2. Web APIs
+setTimeout, DOM events, fetch, etc.
+3. Callback / Task Queue (Macrotask Queue)
+setTimeout, setInterval
+4. Microtask Queue
+Promises, MutationObserver
+5. Event Loop
+Coordinates everything
+
+
+```js
+console.log("A");
+
+setTimeout(() => {
+  console.log("B");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("C");
+});
+
+console.log("D");
+
+Output : A D c B
+```
+---
