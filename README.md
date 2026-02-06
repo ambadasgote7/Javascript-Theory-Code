@@ -515,3 +515,167 @@ clearInterval(interval);
 
 ---
 
+## Promise
+- Promise is an object that represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
+
+**State of a promise**
+- pending --> The initial state of a promise neither fulfilled nor rejected.
+- fulfilled --> The promise has been fulfilled.
+- rejected --> The promise has been rejected.
+
+```js
+const promise = new Promise((resolve, reject) => {
+    if (true) {
+        resolve("Hello");
+    } else {
+        reject("Error");
+    }
+});
+
+promise
+.then(() => {
+    console.log("Promise Fulfilled");
+})
+.catch(() => {
+    console.log("Promise Rejected");
+});
+```
+
+## Promise Chaining
+- Promise chaining is the process of executing multiple asynchronous operations in sequence, where each .then() waits for the 
+previous promise to settle by returning a value or another promise.
+
+```js
+const p1 = new Promise((resolve, reject) => {
+    if (true) {
+        resolve("Hello P1");
+    } else {
+        reject("Error P1");
+    }
+});
+
+const p2 = new Promise((resolve, reject) => {
+    if (false) {
+        resolve("Hello P2");
+    } else {
+        reject("Error P2");
+    }
+});
+
+p1
+    .then(result => {
+        console.log(result);
+        return p2; // chain waits for p2 to resolve
+    })
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+```
+**Promises — Points to Remember**
+- A Promise represents the result of an asynchronous operation.
+- Promise states: pending, fulfilled, rejected.
+- .then() runs when a promise is fulfilled.
+- .catch() runs when a promise is rejected.
+- .then() always returns a new promise.
+- Promise callbacks run in the microtask queue.
+- A rejected promise skips .then() blocks until a .catch() is found.
+
+**Promise Chaining — Points to Remember**
+- Promise chaining executes async tasks in sequence.
+- Chaining is done by returning a promise inside .then().
+- Returning a promise makes the chain wait.
+- Not returning a promise means the chain does not wait.
+- Returning nothing from .then() resolves with undefined.
+- .catch() can catch any error above it in the chain.
+- Waiting is good only when the next step depends on the previous one.
+- Unnecessary waiting causes performance issues.
+
+---
+
+## Methods of Promise
+
+**1. Promise.all() Method**
+Waits for all promises to resolve and returns their results as an array. If any promise is rejected, it immediately rejects.
+
+```js
+Promise.all([
+    Promise.resolve("Task 1 completed"),
+    Promise.resolve("Task 2 completed"),
+    Promise.reject("Task 3 failed")
+])
+    .then((results) => console.log(results))
+    .catch((error) => console.error(error));
+```
+
+**2.  Promise.allSettled() Method**
+Waits for all promises to settle (fulfilled or rejected) Method and returns an array of their outcomes.
+
+```js
+Promise.allSettled([
+    Promise.resolve("Task 1 completed"),
+    Promise.reject("Task 2 failed"),
+    Promise.resolve("Task 3 completed")
+])
+    .then((results) => console.log(results));
+```
+
+**3. Promise.race() Method**
+Promise.race() Method resolves or rejects as soon as the first promise settles.
+
+```js
+Promise.race([
+    new Promise((resolve) =>
+        setTimeout(() =>
+            resolve("Task 1 finished"), 1000)),
+    new Promise((resolve) =>
+        setTimeout(() =>
+            resolve("Task 2 finished"), 500)),
+]).then((result) =>
+    console.log(result));
+```
+
+**4. Promise.any() Method**
+Promise.any() Method resolves with the first fulfilled promise. If all are rejected, it rejects with an AggregateError.
+
+```js
+Promise.any([
+    Promise.reject("Task 1 failed"),
+    Promise.resolve("Task 2 completed"),
+    Promise.resolve("Task 3 completed")
+])
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+```
+
+**5. Promise.resolve() Method**
+Promise.resolve() Method returns a promise that resolves with the given value.
+
+```js
+Promise.resolve("Immediate success")
+    .then((value) => console.log(value));
+```
+
+**6. Promise.reject() Method**
+Promise.reject() Method returns a promise that immediately rejects with a given reason.
+
+```js
+Promise.reject("Immediate failure")
+    .catch((error) => console.error(error));
+```
+
+**7. Promise.finally() Method**
+Promise.finally() Method runs a cleanup or final code block regardless of the promise’s result (fulfilled or rejected).
+
+```js
+Promise.resolve("Task completed")
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error))
+    .finally(() => console.log("Cleanup completed"));
+
+```
+
+---
+
