@@ -265,3 +265,79 @@ console.log(mul(10, 20)); // Calling the function as expression
 ```
 
 ---
+
+## Map, Filter, Reduce
+
+**Map :**
+- map() is used to transform each element of an array and returns a new array of the same length. 
+- It does not modify the original array.
+
+```js
+let numbers = [1, 2, 3, 4, 5];
+let doubleNumbers = numbers.map(num => num * 2);
+console.log(doubleNumbers); // [2, 4, 6, 8, 10]
+```
+**Filter :**
+- filter() is used to select elements from an array based on a condition and returns a new array with fewer or equal elements.
+- It does not modify the original array.
+
+```js 
+let numbers = [1, 3, 5,8,2,4,3];
+let evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // [2, 4, 8]
+```
+
+**Reduce :**
+- reduce() is used to reduce an array to a single value like a number, object, or array by accumulating results.
+
+```js
+let numbers = [1, 2, 3, 4, 5];
+let sum = numbers.reduce((acc, num) => acc + num, 0);
+console.log(sum); // 15
+```
+
+---
+
+## Static vs Dynamic Typing
+
+**Static Typing :**
+- Static typing is a type system that checks the types of variables at compile time.
+- Programming languages that support static typing include Java, C++, C.
+```js
+int x = 10;
+String name = "Ambadas";
+```
+
+**Dynamic Typing :**
+- Dynamic typing is a type system that checks the types of variables at runtime.
+- Programming languages that support dynamic typing include JavaScript.
+```js
+let x = 10;
+let name = "Ambadas";
+```
+---
+
+## Garbage Collection
+- The garbage collection is the automatic memory management process in Js which idntifies and deallocates the memory of the varaibles that are 
+no longer used in the program.
+- The garbage collection process is performed by the Js engine.
+
+---
+
+## Math Object
+- The Math object is a built-in object that provides mathematical functions.
+```js
+console.log(Math.PI); // 3.141592653589793
+console.log(Math.abs(-10)); // 10
+console.log(Math.round(3.7)); // 4
+console.log(Math.floor(3.7)); // 3
+console.log(Math.ceil(3.7)); // 4
+console.log(Math.sqrt(16)); // 4
+console.log(Math.pow(2, 3)); // 8
+console.log(Math.max(1, 2, 3, 4, 5)); // 5
+console.log(Math.min(1, 2, 3, 4, 5)); // 1
+console.log(Math.random()); // 0.12345678901234568
+```
+
+---
+
