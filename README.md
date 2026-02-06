@@ -721,3 +721,23 @@ higherOrderFunction(callBackData);
 ```
 
 ---
+
+## Async/Await
+- Async/Await is a syntax that allows you to write asynchronous code in a synchronous style.
+- It is used to handle asynchronous operations in a more readable and maintainable way.
+
+```js 
+async function fetchData() {
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+fetchData();
+```
+
+---
+
