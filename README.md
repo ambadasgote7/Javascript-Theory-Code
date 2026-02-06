@@ -679,3 +679,45 @@ Promise.resolve("Task completed")
 
 ---
 
+## Callbacks
+- Callbacks are functions passed as arguments to other functions to be executed once an event or task is complete.
+
+```js
+function fecthData(callback) {
+    setTimeout(() => {
+        const data = "Fetching data...";
+        callback(data);
+    }, 1000);
+}
+
+function callBackData(data) {
+    console.log(data);
+}
+
+fecthData(callBackData);
+```
+
+---
+
+## Callbacks vs Promises
+- Promises are used to handle asynchronous operations.
+- Callbacks are used to handle synchronous operations.
+
+--- 
+
+## Higher-order functions
+- A higher-order function is a function that takes another function as an argument OR returns a function.
+```js
+function higherOrderFunction(callback) {
+    console.log("Higher-order function");
+    return callback();
+}
+
+function callBackData() {
+    console.log("Callback data paased in higher-order function");
+}
+
+higherOrderFunction(callBackData);
+```
+
+---
