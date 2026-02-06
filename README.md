@@ -475,6 +475,43 @@ Promise.resolve().then(() => {
 
 console.log("D");
 
-Output : A D c B
+Output : A D C B
 ```
 ---
+
+## setTimeout and clearTimeout
+- setTimeout() is used to execute a function or code after a specified delay.
+- clearTimeout() is used to clear the timeout.
+```js
+let timeout = setTimeout(() => {
+    console.log("Hello");
+}, 1000);
+```
+```js
+let timeout = setTimeout(() => {
+    console.log("Hello");
+}, 1000);
+
+clearTimeout(timeout);
+```
+
+---
+
+## setInterval and clearInterval
+- setInterval() is used to execute a function or code repeatedly after a specified delay.
+- clearInterval() is used to clear the interval.
+```js
+let interval = setInterval(() => {
+    console.log("Hello");
+}, 1000);
+```
+```js
+let interval = setInterval(() => {
+    console.log("Hello");
+}, 1000);
+
+clearInterval(interval);
+```
+
+---
+
