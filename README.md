@@ -741,3 +741,32 @@ fetchData();
 
 ---
 
+## Errors 
+- Errors are objects that represent an error that occurred during the execution of a program.
+
+**Error Types**
+- TypeError
+- EvalError
+- RangeError
+- ReferenceError
+- SyntaxError
+- URIError
+
+**Error Handling**
+- try-catch
+- throw
+- finally
+
+```js
+try {
+    const data = 10 / 0;
+    console.log(data);
+} catch (error) {
+    console.error(error);
+} finally {
+    console.log("Finally block");
+}
+```
+
+---
+
