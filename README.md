@@ -850,3 +850,75 @@ obj2.x(); // 200
 ```
 
 --- 
+
+## call, apply, bind
+
+**call :**
+ - calls a function immdediately
+ - first argument -> value of this
+ - Remaining arguments -> passed one by one
+
+```js
+Synatx : fn.call(thisArg, arg1, arg2, ...)
+
+Example :
+
+function greet(city) {
+  console.log(this.name, city);
+}
+
+const user = { name: "Ambadas" };
+
+greet.call(user, "Dudhani");
+```
+
+**apply :**
+- same as call but the arguments are passed as an array
+- calls a function immdediately
+
+```js 
+Syntax : fn.apply(thisArg, [argArray])
+
+Example
+function greet(city, country) {
+    console.log(this.name, city, country);
+}
+
+const user = {
+    name: "Ambadas",
+}
+
+greet.apply(user, ["Dudhani", "India"]);
+```
+
+**bind :**
+- Does NOT call the function immediately
+- Returns a new function
+- Permanently binds this
+```js 
+Syntax : const newFn = fn.bind(thisArg, arg1, arg2, ...)
+
+Example
+function greet(city) {
+    console.log(this.name, city);
+}
+
+const user = {
+    name: "Ambadas",
+}
+
+const newFn = greet.bind(user, "Dudhani");
+newFn(); // the output is Ambadas Dudhani
+```
+
+---
+
+## Arrow Functions
+- Arrow functions are a shorthand for anonymous functions.
+```js
+const add = (a, b) => a + b;
+
+console.log(add(10, 20)); // 30
+```
+
+----
