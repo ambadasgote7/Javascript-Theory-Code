@@ -18,8 +18,15 @@ const user2 = {
 // getDetails.apply(user2, ["Shawal", "India", "413216"]);
 
 // bind method
-const fn = getDetails.bind(user, "Dudhani", "India", "41320");
-fn(); // the output is Ambadas is in Dudhani India 41320
+// const fn = getDetails.bind(user, "Dudhani", "India", "41320");
+// fn(); // the output is Ambadas is in Dudhani India 41320
 
-const fn2 = getDetails.bind(user2, "Shawal", "India", "413216");
-fn2(); // the output is Babusha is in Shawal India 413216
+// const fn2 = getDetails.bind(user2, "Shawal", "India", "413216");
+// fn2(); // the output is Babusha is in Shawal India 413216
+
+for (var i = 0; i < 3; i++) {
+   setTimeout(function(value)  {
+        console.log(value);
+    }.bind(this, i), 1000);
+}
+
