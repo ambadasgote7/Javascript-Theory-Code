@@ -770,3 +770,83 @@ try {
 
 ---
 
+## this Keyword
+- The this keyword behaves differently in different contexts.
+- In the global scope, this refers to the global object such as window, module.exports({}), etc.
+- In the function it behaviour is depened on the mode (strict or non-strict).
+    - In strict mode, this refers to the undefined value.
+    - In non-strict mode, this refers to the global object.
+- The value of this keyword is also depend on how the function is called.
+- In arrow functions, this refers to the enclosing lexcial context.
+- In DOM, this refers to the HTML element to which the event is triggered.
+```js
+"use strict";
+
+/*
+In Node.js module scope, `this` refers to module.exports
+*/
+console.log(this); // {}
+
+/*
+In a normal function:
+- strict mode → undefined
+- non-strict mode → global object
+*/
+function test() {
+  console.log(this);
+}
+test();
+
+/*
+`this` depends on how a function is called
+*/
+const student = {
+  name: "Ambadas",
+  printName() {
+    console.log(this.name);
+  }
+};
+
+student.printName(); // Ambadas
+
+const fn = student.printName;
+fn(); // undefined
+
+/*
+call / apply / bind
+*/
+const student2 = { name: "Babusha" };
+
+student.printName.call(student2);
+student.printName.apply(student2);
+
+const boundFn = student.printName.bind(student2);
+boundFn();
+
+/*
+Arrow functions inherit `this` from lexical scope
+*/
+const obj = {
+  a: 100,
+  x: () => {
+    console.log(this); // module.exports
+  }
+};
+
+/*
+Arrow function inside normal function
+*/
+const obj2 = {
+  a: 200,
+  x: function () {
+    const y = () => {
+      console.log(this.a);
+    };
+    y();
+  }
+};
+
+obj2.x(); // 200
+```
+
+--- 
