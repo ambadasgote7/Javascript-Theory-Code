@@ -17,12 +17,15 @@
 
 // It also depend on how the function is called.
 
-// const student = {
-//     name : "Ambadas",
-//     printName : function() {
-//         console.log(this.name);
-//     }
-// }
+const student = {
+    name : "Ambadas",
+    printName : function() {
+        console.log(this.name);
+    }
+}
+
+const fn = student.printName;
+fn(); // the output is undefined
 
 // student.printName(); // the output is Ambadas
 
